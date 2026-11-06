@@ -1,0 +1,17 @@
+name: Hello World with Needs
+
+on: [push]
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello
+        run: echo "Hello"
+
+  say-world:
+    runs-on: ubuntu-latest
+    needs: say-hello # This job waits for 'say-hello' to finish successfully
+    steps:
+      - name: Print World
+        run: echo "World!"
